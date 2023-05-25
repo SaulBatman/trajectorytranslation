@@ -403,7 +403,8 @@ class TrajectoryEnv(gym.Env):
             self.env_steps = 0
             self.last_plan_step = 0
             if self.randomize_trajectories:
-                self.curr_traj_idx = self.np_random.randint(0, len(self.trajectories))
+                # self.curr_traj_idx = self.np_random.randint(0, len(self.trajectories))
+                self.curr_traj_idx = np.random.randint(0, len(self.trajectories))
             else:
                 self.curr_traj_idx = (self.curr_traj_idx + 1) % len(self.trajectories)
             # load original teacher. In planning mode, we only do this to load the initial state
